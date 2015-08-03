@@ -1,0 +1,15 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+      <title><%= title %></title>
+    </head>
+    <body>
+      <h1>My Site Title is <%= title %></h1>
+      <h2><%= welcome %></h2>
+      <h3>These are the most awesome things...</h3>
+      <ul>
+        <% awesomeThings.forEach(function(thing){ %>
+        <li><%= thing %></li>
+          <% }); %>
+    </body>
+</html>

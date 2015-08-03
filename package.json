@@ -1,0 +1,23 @@
+{
+  "name": "expressjs-learning",
+  "version": "1.0.0",
+  "description": "Learning expressjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwquarles/expressjs-learning.git"
+  },
+  "author": "johnwquarles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnwquarles/expressjs-learning/issues"
+  },
+  "homepage": "https://github.com/johnwquarles/expressjs-learning#readme",
+  "dependencies": {
+    "ejs": "^2.3.3",
+    "express": "^4.13.3"
+  }
+}
