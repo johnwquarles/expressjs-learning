@@ -2,7 +2,9 @@ var fs = require('fs');
 // none of this seems very different. Apparently express is useful primarily for eliminating all the
 // if/else routing statements we had previously.
 
-// could shorten next two lines as: var app = require('express')();
+// could shorten two lines as: var app = require('express')();
+// but some part of a pattern that we've used requires express = require('express');
+// iirc.
 
 //////// npm requires
 var express = require('express');
