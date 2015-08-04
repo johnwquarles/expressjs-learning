@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %> | Chicken Nuggets</title>
+</head>
+<body>
+  <h1>World Famous Chicken Nuggets</h1>
+<!--   /chickennuggets/order: absolute path!
+  order: relative path! -->
+  <form action="/chickennuggets/order" method="POST">
+    Name: <input type="text" name="name" placeholder="Name">
+    Style:
+    <select name="sauce">
+      <option value="mild">Mild</option>
+      <option value="medium">Medium</option>
+      <option value="hot">Hot</option>
+      <option value="wild">Wild</option>
+    </select>
+    Qty: <input type="number" name="qty" min="1" value="6">
+    <input type="submit" value="Order me some nuggets">
+  </form>
+</body>
+</html>

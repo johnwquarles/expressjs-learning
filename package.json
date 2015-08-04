@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/johnwquarles/expressjs-learning#readme",
   "dependencies": {
+    "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "less-middleware": "^2.0.1",
+    "loggly": "^1.0.8",
+    "morgan": "^1.6.1"
   }
 }
