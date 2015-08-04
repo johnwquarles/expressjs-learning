@@ -106,7 +106,7 @@ app.use(function (req, res, next) {
 // need to pass 4 arguments so that it knows it's an error-handling middleware.
 // if there are 4, the middleware function will *only* fire when there's an error.
 app.use(function (err, req, res, next) {
-  var client = require('./lib/loggly/')('error');
+  var client = require('./lib/loggly')('error');
 
   client.log({
     ip: req.ip,
