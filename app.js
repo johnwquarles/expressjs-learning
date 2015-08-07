@@ -21,10 +21,13 @@ var loggly = require('loggly');
 var routes = require('./routes/index');
 var pizzaRoutes = require('./routes/pizza');
 var chickennuggets = require('./routes/chickennuggets');
+var imgur = require('./routes/imgur');
 
 //////// variables
 var app = express();
 require('./lib/secrets');
+// sets db to global; usable in other modules
+require('./lib/mongodb');
 
 // need to tell node/express about EJS.
 //////// settings
@@ -93,6 +96,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', routes);
 app.use('/pizza', pizzaRoutes);
 app.use('/chickennuggets', chickennuggets);
+app.use('/imgur', imgur);
 
 // 403 any other requests
 // 400 errors before 500, otherwise the 500 will get triggered first. Or maybe not. But Scott says

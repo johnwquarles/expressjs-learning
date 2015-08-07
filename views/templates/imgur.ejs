@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Imgur</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  </head>
+  <body>
+    <h1>It's Imgur!</h1>
+    <form action="/imgur/upload" method="POST" enctype="multipart/form-data">
+      <!-- the below is UX, not security! Client-side. -->
+      <input type="file" name="image" accept="image/*">
+      <input type="submit" value="Upload">
+    </form>
+  </body>
+</html>

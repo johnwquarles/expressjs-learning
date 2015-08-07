@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %> | Pizza <%= orders[0] && orders[0].completedOrNot ? "Completed": "Open"; %> Orders List</title>
+</head>
+<body>
+  <h1><%= orders[0] && orders[0].completedOrNot ? "Completed": "Open" || "Completed"; %> Orders</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Topping</th>
+        <th>Qty</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(function (order) { %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= order.topping %></td>
+          <td><%= order.qty %></td>
+          <td><%= order.createdAt %></td>
+          <% if (!order.completedOrNot) { %>
+            <td>
+              <form action="/pizza/order/<%= order._id %>/complete" method="post">
+                <input type="submit" value="Complete">
+              </form>
+            </td>
+          <% }; %>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

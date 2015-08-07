@@ -16,18 +16,30 @@ router.get(/^hello$/, function (req, res) {
 router.get('/awesomethings', function (req, res) {
   // setTimeout is to show that the page will be rendered when it has everything ready.
   // (don't need to think about it).
-  setTimeout(function() {
-    var awesomeThings = [
-      'Pizza',
-      'Bacon',
-      'Freedom of the Press',
-      'Pluto'
-    ];
 
-    // can't have a forward slash before a file path. *Can* if it's a URL string (and normally will).
-    // this is a big point please remember it.
-    res.render('templates/world', { welcome: 'Thanks for coming!', awesomeThings: awesomeThings});
-  }, 5000)
+  // lets get the awesomeThings from mongodb.
+  var collection = global.db.collection('awesomeThings');
+  //console.log(collection.find());
+
+  //mongodb: async.
+  collection.find().toArray(function(err, things) {
+    console.log(err);
+    res.render('templates/world', { welcome: 'Thanks for coming!', awesomeThings: things});
+  });
+
+//   setTimeout(function() {
+//     var awesomeThings = [
+//       'Pizza',
+//       'Bacon',
+//       'Freedom of the Press',
+//       'Pluto'
+//     ];
+
+//     // can't have a forward slash before a file path. *Can* if it's a URL string (and normally will).
+//     // this is a big point please remember it.
+//     res.render('templates/world', { welcome: 'Thanks for coming!', awesomeThings: awesomeThings});
+//   }, 5000)
+
 });
 
 // throws error but does not crash server.
