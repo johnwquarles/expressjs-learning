@@ -25,7 +25,11 @@ var imgur = require('./routes/imgur');
 
 //////// variables
 var app = express();
-require('./lib/secrets');
+
+// ie, if this isn't in heroku
+if (process.env.NODE_ENV !== 'production') {
+  require('./lib/secrets');
+}
 // sets db to global; usable in other modules
 require('./lib/mongodb');
 
@@ -126,10 +130,12 @@ app.use(function (err, req, res, next) {
   res.status(500).send('I am error.');
 });
 
-var server = app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+
+var server = app.listen(port, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('Example app listening at http://%s:%d', host, port);
   //console.log(process.env["LOGGLY_TOKEN"]);
 });
